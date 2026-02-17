@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XdrgaAmbulanceWlList {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXdrgaAmbulanceWlListElement extends Components.XdrgaAmbulanceWlList, HTMLStencilElement {
+    }
+    var HTMLXdrgaAmbulanceWlListElement: {
+        prototype: HTMLXdrgaAmbulanceWlListElement;
+        new (): HTMLXdrgaAmbulanceWlListElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xdrga-ambulance-wl-list": HTMLXdrgaAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,15 +56,26 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XdrgaAmbulanceWlList {
+    }
+
+    interface MyComponentAttributes {
+        "first": string;
+        "middle": string;
+        "last": string;
+    }
+
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "xdrga-ambulance-wl-list": XdrgaAmbulanceWlList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xdrga-ambulance-wl-list": LocalJSX.IntrinsicElements["xdrga-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLXdrgaAmbulanceWlListElement>;
         }
     }
 }
