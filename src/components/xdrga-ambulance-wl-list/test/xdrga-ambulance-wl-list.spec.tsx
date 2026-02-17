@@ -8,7 +8,7 @@ describe('xdrga-ambulance-wl-list', () => {
       html: `<xdrga-ambulance-wl-list></xdrga-ambulance-wl-list>`,
     });
 
-    const wlList = page.rootInstance as PfxAmbulanceWlList;
+    const wlList = page.rootInstance as XdrgaAmbulanceWlList;
     const expectedPatients = wlList?.waitingPatients?.length
 
     const items = page.root.shadowRoot.querySelectorAll("md-list-item");
