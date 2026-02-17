@@ -7,12 +7,11 @@ describe('xdrga-ambulance-wl-list', () => {
       components: [XdrgaAmbulanceWlList],
       html: `<xdrga-ambulance-wl-list></xdrga-ambulance-wl-list>`,
     });
-    expect(page.root).toEqualHtml(`
-      <xdrga-ambulance-wl-list>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </xdrga-ambulance-wl-list>
-    `);
+
+    const wlList = page.rootInstance as PfxAmbulanceWlList;
+    const expectedPatients = wlList?.waitingPatients?.length
+
+    const items = page.root.shadowRoot.querySelectorAll("md-list-item");
+    expect(items.length).toEqual(expectedPatients);
   });
 });
