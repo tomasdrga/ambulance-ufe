@@ -20,8 +20,25 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XdrgaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface XdrgaAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XdrgaAmbulanceWlList {
     }
+}
+export interface XdrgaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXdrgaAmbulanceWlEditorElement;
+}
+export interface XdrgaAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXdrgaAmbulanceWlListElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -30,7 +47,41 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXdrgaAmbulanceWlAppElement extends Components.XdrgaAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXdrgaAmbulanceWlAppElement: {
+        prototype: HTMLXdrgaAmbulanceWlAppElement;
+        new (): HTMLXdrgaAmbulanceWlAppElement;
+    };
+    interface HTMLXdrgaAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXdrgaAmbulanceWlEditorElement extends Components.XdrgaAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXdrgaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXdrgaAmbulanceWlEditorElement, ev: XdrgaAmbulanceWlEditorCustomEvent<HTMLXdrgaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXdrgaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXdrgaAmbulanceWlEditorElement, ev: XdrgaAmbulanceWlEditorCustomEvent<HTMLXdrgaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXdrgaAmbulanceWlEditorElement: {
+        prototype: HTMLXdrgaAmbulanceWlEditorElement;
+        new (): HTMLXdrgaAmbulanceWlEditorElement;
+    };
+    interface HTMLXdrgaAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXdrgaAmbulanceWlListElement extends Components.XdrgaAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXdrgaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXdrgaAmbulanceWlListElement, ev: XdrgaAmbulanceWlListCustomEvent<HTMLXdrgaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXdrgaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXdrgaAmbulanceWlListElement, ev: XdrgaAmbulanceWlListCustomEvent<HTMLXdrgaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXdrgaAmbulanceWlListElement: {
         prototype: HTMLXdrgaAmbulanceWlListElement;
@@ -38,6 +89,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xdrga-ambulance-wl-app": HTMLXdrgaAmbulanceWlAppElement;
+        "xdrga-ambulance-wl-editor": HTMLXdrgaAmbulanceWlEditorElement;
         "xdrga-ambulance-wl-list": HTMLXdrgaAmbulanceWlListElement;
     }
 }
@@ -56,7 +109,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XdrgaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
+    }
+    interface XdrgaAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XdrgaAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XdrgaAmbulanceWlList {
+        "onEntry-clicked"?: (event: XdrgaAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface MyComponentAttributes {
@@ -64,9 +128,17 @@ declare namespace LocalJSX {
         "middle": string;
         "last": string;
     }
+    interface XdrgaAmbulanceWlAppAttributes {
+        "basePath": string;
+    }
+    interface XdrgaAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "xdrga-ambulance-wl-app": Omit<XdrgaAmbulanceWlApp, keyof XdrgaAmbulanceWlAppAttributes> & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes]?: XdrgaAmbulanceWlApp[K] } & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes as `attr:${K}`]?: XdrgaAmbulanceWlAppAttributes[K] } & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes as `prop:${K}`]?: XdrgaAmbulanceWlApp[K] };
+        "xdrga-ambulance-wl-editor": Omit<XdrgaAmbulanceWlEditor, keyof XdrgaAmbulanceWlEditorAttributes> & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes]?: XdrgaAmbulanceWlEditor[K] } & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes as `attr:${K}`]?: XdrgaAmbulanceWlEditorAttributes[K] } & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes as `prop:${K}`]?: XdrgaAmbulanceWlEditor[K] };
         "xdrga-ambulance-wl-list": XdrgaAmbulanceWlList;
     }
 }
@@ -75,6 +147,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xdrga-ambulance-wl-app": LocalJSX.IntrinsicElements["xdrga-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLXdrgaAmbulanceWlAppElement>;
+            "xdrga-ambulance-wl-editor": LocalJSX.IntrinsicElements["xdrga-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLXdrgaAmbulanceWlEditorElement>;
             "xdrga-ambulance-wl-list": LocalJSX.IntrinsicElements["xdrga-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLXdrgaAmbulanceWlListElement>;
         }
     }
