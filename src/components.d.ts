@@ -21,6 +21,8 @@ export namespace Components {
         "middle": string;
     }
     interface XdrgaAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -30,6 +32,8 @@ export namespace Components {
         "entryId": string;
     }
     interface XdrgaAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface XdrgaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -110,6 +114,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface XdrgaAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -120,6 +126,8 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: XdrgaAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface XdrgaAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: XdrgaAmbulanceWlListCustomEvent<string>) => void;
     }
 
@@ -130,16 +138,22 @@ declare namespace LocalJSX {
     }
     interface XdrgaAmbulanceWlAppAttributes {
         "basePath": string;
+        "apiBase": string;
+        "ambulanceId": string;
     }
     interface XdrgaAmbulanceWlEditorAttributes {
         "entryId": string;
+    }
+    interface XdrgaAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
     }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
         "xdrga-ambulance-wl-app": Omit<XdrgaAmbulanceWlApp, keyof XdrgaAmbulanceWlAppAttributes> & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes]?: XdrgaAmbulanceWlApp[K] } & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes as `attr:${K}`]?: XdrgaAmbulanceWlAppAttributes[K] } & { [K in keyof XdrgaAmbulanceWlApp & keyof XdrgaAmbulanceWlAppAttributes as `prop:${K}`]?: XdrgaAmbulanceWlApp[K] };
         "xdrga-ambulance-wl-editor": Omit<XdrgaAmbulanceWlEditor, keyof XdrgaAmbulanceWlEditorAttributes> & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes]?: XdrgaAmbulanceWlEditor[K] } & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes as `attr:${K}`]?: XdrgaAmbulanceWlEditorAttributes[K] } & { [K in keyof XdrgaAmbulanceWlEditor & keyof XdrgaAmbulanceWlEditorAttributes as `prop:${K}`]?: XdrgaAmbulanceWlEditor[K] };
-        "xdrga-ambulance-wl-list": XdrgaAmbulanceWlList;
+        "xdrga-ambulance-wl-list": Omit<XdrgaAmbulanceWlList, keyof XdrgaAmbulanceWlListAttributes> & { [K in keyof XdrgaAmbulanceWlList & keyof XdrgaAmbulanceWlListAttributes]?: XdrgaAmbulanceWlList[K] } & { [K in keyof XdrgaAmbulanceWlList & keyof XdrgaAmbulanceWlListAttributes as `attr:${K}`]?: XdrgaAmbulanceWlListAttributes[K] } & { [K in keyof XdrgaAmbulanceWlList & keyof XdrgaAmbulanceWlListAttributes as `prop:${K}`]?: XdrgaAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };

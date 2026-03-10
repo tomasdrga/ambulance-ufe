@@ -14,6 +14,8 @@ export class XdrgaAmbulanceWlApp {
   @State() private relativePath = "";
 
   @Prop() basePath: string="";
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
@@ -57,6 +59,8 @@ export class XdrgaAmbulanceWlApp {
             oneditor-closed={ () => navigate("./list")} >
           </xdrga-ambulance-wl-editor>
         : <xdrga-ambulance-wl-list
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
             onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
         </xdrga-ambulance-wl-list>
         }
