@@ -56,6 +56,7 @@ export class XdrgaAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <xdrga-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
             oneditor-closed={ () => navigate("./list")} >
           </xdrga-ambulance-wl-editor>
         : <xdrga-ambulance-wl-list

@@ -29,6 +29,8 @@ export namespace Components {
         "basePath": string;
     }
     interface XdrgaAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface XdrgaAmbulanceWlList {
@@ -122,6 +124,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface XdrgaAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: XdrgaAmbulanceWlEditorCustomEvent<string>) => void;
     }
@@ -143,6 +147,8 @@ declare namespace LocalJSX {
     }
     interface XdrgaAmbulanceWlEditorAttributes {
         "entryId": string;
+        "ambulanceId": string;
+        "apiBase": string;
     }
     interface XdrgaAmbulanceWlListAttributes {
         "apiBase": string;
